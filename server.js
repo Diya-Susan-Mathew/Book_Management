@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./database');
-const bookRoutes = require('./routes/books');
+const connectDB = require('./databases/db');
+const bookRoutes = require('./routes/bookroutes');
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 // 404 handler
-app.use('*', (req, res) => {
+app.use('/*(any)', (req, res) => {
   res.status(404).json({
     success: false,
     message: 'Route not found'
