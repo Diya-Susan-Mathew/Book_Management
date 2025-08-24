@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 // 404 handler
-app.use('/*(any)', (req, res) => {
+app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
     message: 'Route not found'
@@ -50,7 +50,7 @@ app.use((error, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(` Server running on port ${PORT}`);
 });
 
 module.exports = app;
